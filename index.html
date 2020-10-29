@@ -58,6 +58,9 @@
 	        
 			</ul>
 		</nav>
+		<nav>
+   			 总文章数 4
+		</nav>
 		<nav class="header-smart-menu">
     		
     			
@@ -76,13 +79,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
-		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="bilibili" target="_blank" href="https://space.bilibili.com/108062401" title="bilibili"><i class="icon-bilibili"></i></a>
 		        
 			</div>
 		</nav>
@@ -117,13 +114,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
-			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="bilibili" target="_blank" href="https://space.bilibili.com/108062401" title="bilibili"><i class="icon-bilibili"></i></a>
 			        
 				</div>
 			</nav>
@@ -157,23 +148,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Mybatis-总结"><a href="#Mybatis-总结" class="headerlink" title="Mybatis 总结"></a>Mybatis 总结</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p><img src="/images/one.png"></p>
-<h3 id="动态代理四大特点"><a href="#动态代理四大特点" class="headerlink" title="动态代理四大特点:"></a>动态代理四大特点:</h3><p>1.接口类和xml文件名称一致</p>
-<p>2.xml文件中id 为接口中的方法名</p>
-<p>3.pamameterType 为入参类型 对应接口中传入的参数</p>
-<p>4.resultType 为返回结果类型 对应接口中返回值的类型</p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>0.加载资源文件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String source=<span class="string">&quot;sqlMapconfig.xml&quot;</span>;</span><br><span class="line">InputStream is=Resources.getResourceAsStream(source);</span><br></pre></td></tr></table></figure>
-
-<p>1 .创建SqlSessionFactory 对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SqlSessionFactory sf=<span class="keyword">new</span> SqlSessionFactoryBuilder().build(is);</span><br></pre></td></tr></table></figure>
-
-<p>2.创建SqlSession 对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SqlSession session=sf.openSession();  <span class="comment">//构造方法</span></span><br></pre></td></tr></table></figure>
-
-<p>3.执行sql语句</p>
-<h2 id="动态代理实现模糊查询"><a href="#动态代理实现模糊查询" class="headerlink" title="动态代理实现模糊查询"></a>动态代理实现模糊查询</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UserMapper mapper = session.getMapper(UserMapper.class);</span><br><span class="line">List&lt;Users&gt; us=mapper.selectUsersByname(<span class="string">&quot;张&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="log4j"><a href="#log4j" class="headerlink" title="log4j"></a>log4j</h2><h2 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h2><h2 id="多对一"><a href="#多对一" class="headerlink" title="多对一"></a>多对一</h2>
+        
+          <a class="article-more-a" href="/2020/10/29/Mybatis%20%E6%80%BB%E7%BB%93/#more">more >></a>
+        
       
 
       
@@ -227,74 +204,9 @@
 <h2 id="post请求乱码解决"><a href="#post请求乱码解决" class="headerlink" title="post请求乱码解决"></a>post请求乱码解决</h2><p>​    <code>request.setCharacterEncoding(&quot;utf-8&quot;);</code>        //设置编码格式</p>
 <p>​    <code>response.setCharacterEncoding(&quot;utf-8&quot;);</code>       //设置编码格式</p>
 <p>​    <code>response.setContentType(&quot;typr/html; charset=utf-8&quot;)</code>      //设置文档类型</p>
-<h2 id="get请求乱码解决"><a href="#get请求乱码解决" class="headerlink" title="get请求乱码解决"></a>get请求乱码解决</h2><p>​    1.修改Tomcat 中server 配置文件</p>
-<p>​            <code>URIEncoding=&quot;utf-8&quot;</code></p>
-<p>​    2. 通过new String 方式</p>
-<p>​            <code>new String(name.getBytes(&quot;iso-8859&quot;),&quot;UTF-8&quot;);</code></p>
-<h2 id="转发和重定向"><a href="#转发和重定向" class="headerlink" title="转发和重定向"></a>转发和重定向</h2><p>​    1.转发</p>
-<p>​            <code>request.getRequestDispatcher(&quot;目标地址&quot;).forward(request,response);</code></p>
-<p>​    2.重定向    </p>
-<p>​            <code>response.sendRedirect(&quot;目标地址&quot;);</code></p>
-<p>​    转发的特点</p>
-<p>​            地址不变，是服务器内部的一次转发,实则为一次请求</p>
-<p>​    重定向</p>
-<p>​            地址改变,实则为两次请求</p>
-<h2 id="域对象-范围从小到大"><a href="#域对象-范围从小到大" class="headerlink" title="域对象  (范围从小到大)"></a>域对象  (范围从小到大)</h2><p>​    1.Pagecontext</p>
-<p>​            作用范围为 整个jsp页面  </p>
-<p>​    2.ServletRequest</p>
-<p>​            作用范围为 整个请求链  （请求转发也算，因为转发实则为一次请求）</p>
-<p>​            获得客户端信息，可通过getRequestURL()、getRequestURI()、getQueryString()、getPathInfo()、getRemoteAddr()、getRemoteHost()、    </p>
-<p>​            getRemotePort()、getLocalAddr()、getLocalName()</p>
-<p>​    3.Session</p>
-<p>​            存储在服务器端</p>
-<p>​            作用范围为 一次会话</p>
-<p>​            sessionid 存储在cookie 中   当关闭浏览器session并没有消失  只是sessionid 失效 因此无法获取数据 </p>
-<p>​            调用session的invalidate()方法可以立即销毁session</p>
-<p>​    4.ServletContext</p>
-<p>​            作用范围为全局 ，当服务器关闭时会失效</p>
-<h2 id="JSP的本质为servlet"><a href="#JSP的本质为servlet" class="headerlink" title="JSP的本质为servlet"></a>JSP的本质为servlet</h2><h2 id="过滤器和监听器"><a href="#过滤器和监听器" class="headerlink" title="过滤器和监听器"></a>过滤器和监听器</h2><p>​    filter    and   listener</p>
-<p>​    执行顺序   listener  &gt;  filter &gt; servlet </p>
-<p>​    监听器可以监听   域对象的创建和销毁 ，变量的创建和销毁，等等   </p>
-<p>​    常用:  统计在线人数</p>
-<p>​    过滤器 (两种方式配置，和servlet  相同)   </p>
-<p>​    实例:  不登陆不法看到购物车     所以需要过滤 一部分url</p>
-<h2 id="El表达式-expression-language"><a href="#El表达式-expression-language" class="headerlink" title="El表达式(expression language)"></a>El表达式(expression language)</h2><p>​    语法 ${  Person.name }    (Person为对象)</p>
-<p>​    取出4大域对象中保存的数据</p>
-<h2 id="JSTL"><a href="#JSTL" class="headerlink" title="JSTL"></a>JSTL</h2><p>​    主要库  core (以下为引入)   前缀通常为 c</p>
-<p>​    <code>&lt;%@taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot;  %&gt;</code></p>
-<p>​    if 和 foreach</p>
-<h2 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h2><p>​    AJAX = 异步的 JavaScript  和 xml</p>
-<p>​    传统的网页 如果需要更新内容  需要加载整个页面</p>
-<h3 id="AJAX请求的步骤-原生"><a href="#AJAX请求的步骤-原生" class="headerlink" title="AJAX请求的步骤    (原生)  :"></a>AJAX请求的步骤    (原生)  :</h3><ol>
-<li><p>创建引擎</p>
-<p>​    <code>var xhr =new XMLHttpRequest();</code></p>
-<ol start="2">
-<li>创建连接</li>
-</ol>
-<p>​    <code>xhr.open(&quot;get&quot;,&quot;ajax?var=&quot;+var);</code></p>
-<ol start="3">
-<li>发送消息</li>
-</ol>
-<p>​    <code>xhr.send(null);</code>    </p>
-</li>
-</ol>
-<ol start="4">
-<li><p>接收数据</p>
-<p>​    <code>xhr.onreadystatechange=function ()&#123;</code></p>
-<p>​            <code>if (xhr.readystate==4&amp;&amp;xhr.status==200)&#123;</code></p>
-<p>​                    <code>object.innerHTML=xhr.responseText;</code></p>
-<p>​        <code>&#125;</code>        </p>
-<p>​    <code>&#125;</code></p>
-</li>
-</ol>
-<h3 id="jquery使用"><a href="#jquery使用" class="headerlink" title="jquery使用"></a>jquery使用</h3><p>​    <code>$.get(&quot;url&quot;,&#123;&quot;name&quot;:name&#125;,function(data)&#123;</code></p>
-<p>​            <code>//data为服务器返回的数据</code></p>
-<p>​            <code>$(&quot;#div&quot;).html(data);</code></p>
-<p>​    <code>&#125;)</code></p>
-<p>​    <code>$.post(&quot;url&quot;,&#123;&quot;age&quot;:age&#125;.function(data)&#123;</code></p>
-<p>​            <code>//同上</code>        </p>
-<p>​    <code>&#125;)</code></p>
-
+        
+          <a class="article-more-a" href="/2020/10/29/jsp+servlet%E6%80%BB%E7%BB%93/#more">more >></a>
+        
       
 
       
@@ -345,65 +257,10 @@
 <p>​        HTML页面的样式( css 用于美化 html 页面)</p>
 <h2 id="如何引入"><a href="#如何引入" class="headerlink" title="如何引入"></a>如何引入</h2><ol>
 <li><p>行内样式</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">P</span> <span class="attr">style</span>=<span class="string">&quot;color:red&quot;</span> &gt;</span>  这是一个段落    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>内嵌样式</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span></span><br><span class="line">    p&#123;</span><br><span class="line">         color: blue;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>外部样式</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;css/style.css&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>​    说明: href =”引入外部样式文件”</p>
-</li>
-</ol>
-<h2 id="CSS的语法"><a href="#CSS的语法" class="headerlink" title="CSS的语法"></a>CSS的语法</h2><p>​    选择器{</p>
-<p>​            声明1;</p>
-<p>​            声明2;</p>
-<p>​    }</p>
-<p>​    说明:  声明为    样式属性名 :  样式的值;</p>
-<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><h3 id="1-基本选择器"><a href="#1-基本选择器" class="headerlink" title="1.基本选择器"></a>1.基本选择器</h3><p>​            1.标签选择器</p>
-<p>​            2.类选择器</p>
-<p>​            3.id 选择器</p>
-<h3 id="2-组合选择器"><a href="#2-组合选择器" class="headerlink" title="2.组合选择器"></a>2.组合选择器</h3><p>​            1.并集选择器</p>
-<p>​            2.交集选择器</p>
-<p>​            3.后代选择器</p>
-<p>​            4.子集选择器</p>
-<h3 id="3-属性选择器"><a href="#3-属性选择器" class="headerlink" title="3.属性选择器"></a>3.属性选择器</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">input[name=&quot;us&quot;]&#123;</span><br><span class="line">border : 1px solid red;</span><br><span class="line">height : 38px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-通用选择器"><a href="#4-通用选择器" class="headerlink" title="4.通用选择器"></a>4.通用选择器</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">color : red;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="CSS的样式"><a href="#CSS的样式" class="headerlink" title="CSS的样式"></a>CSS的样式</h2><h3 id="1-文本样式"><a href="#1-文本样式" class="headerlink" title="1.文本样式"></a>1.文本样式</h3><p>​            text-align : left  center right</p>
-<p>​            color : red</p>
-<p>​            line-height : 行高  (高度/垂直居中)      //  当 line-height ==height  时 -&gt; 垂直居中</p>
-<h3 id="2-字体样式"><a href="#2-字体样式" class="headerlink" title="2.字体样式"></a>2.字体样式</h3><p>​            font-size :   字体大小</p>
-<p>​            font-weight :  border bold normal lighter    (权重-粗细)</p>
-<p>​            font-family :   “blackadder itc”,”宋体”      (类型)</p>
-<h3 id="3-背景样式"><a href="#3-背景样式" class="headerlink" title="3.背景样式"></a>3.背景样式</h3><p>​            background-color : 颜色</p>
-<p>​            background- image: 背景图像       url(“地址”)</p>
-<p>​            background -repeat  :  平铺方式      no-repeat   repeat-x   repeat-y  repeat      repeat为默认 </p>
-<p>​            background -position : 定位      </p>
-<p>​                            水平: left center  right       left为默认</p>
-<p>​                            垂直: top center bottom    top为默认</p>
-<p>​                            具体值:   10px 20px</p>
-<h3 id="4-列表样式"><a href="#4-列表样式" class="headerlink" title="4.列表样式"></a>4.列表样式</h3><p>​            list-style-type : disc     (符号 disc  circle square)</p>
-<p>​            list-style-image : url(“  “)    (图像)</p>
-<p>​            list-style-position   : (inside/outside)</p>
-<p>​            list-style : none  去掉符号</p>
-<h2 id="标准文档流"><a href="#标准文档流" class="headerlink" title="标准文档流"></a>标准文档流</h2><h3 id="1-浮动"><a href="#1-浮动" class="headerlink" title="1.浮动"></a>1.浮动</h3><p>​            float : left right </p>
-<p>​            清楚浮动 : clear : left right both</p>
-<h3 id="2-定位"><a href="#2-定位" class="headerlink" title="2.定位"></a>2.定位</h3><p>​            position : absolute(绝对定位)  relative(相对定位)  fixed(固定定位)  static(静态定位)</p>
-<p>​            绝对定位: 按父容器定位 脱离文档流(如果父容器没有定位 按body定位)</p>
-<p>​            相对定位 : 按自身位置定位 不会脱离文档流</p>
-<h2 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h2><p>​    外边距 : margin</p>
-<p>​    内边距 ：padding</p>
-<p>​    边框 ：border</p>
-<p>​    水平居中 margin：0px auto</p>
-<p>​    去掉默认边距 ： *{ margin : 0px;  padding : 0px;}</p>
-<h2 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h2><p>​     a:link   默认链接的样式</p>
-<pre><code> a:visitid  连接后的样式</code></pre>
-<p>​     a:hover  鼠标悬停时的样式</p>
-<p>​     a:active  按下鼠标时的样式</p>
-<h2 id="display-block-块’-显示-inline-行-none-隐藏"><a href="#display-block-块’-显示-inline-行-none-隐藏" class="headerlink" title="display : block (块’,显示)   inline (行)  none(隐藏)"></a>display : block (块’,显示)   inline (行)  none(隐藏)</h2>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">P</span> <span class="attr">style</span>=<span class="string">&quot;color:red&quot;</span> &gt;</span>  这是一个段落    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></li></ol>
+        
+          <a class="article-more-a" href="/2020/10/29/CSS%20%E6%80%BB%E7%BB%93/#more">more >></a>
+        
       
 
       
@@ -455,49 +312,9 @@
 <h3 id="2-JDBC-需要的jar"><a href="#2-JDBC-需要的jar" class="headerlink" title="2.JDBC 需要的jar"></a>2.JDBC 需要的jar</h3><p>​                a,java,sql</p>
 <p>​                b,javax,sql</p>
 <p>​                c,数据库驱动包</p>
-<h2 id="JDBC的开发步骤"><a href="#JDBC的开发步骤" class="headerlink" title="JDBC的开发步骤"></a>JDBC的开发步骤</h2><p>​        1,DriverManager 加载驱动</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>)    <span class="comment">//反射</span></span><br></pre></td></tr></table></figure>
-
-<p>​        2.获取connection 连接</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection con=DriverManager.getConnection(<span class="string">&quot;jsbc:mysql:///school?useSSl=true&quot;</span>,<span class="string">&quot;root&quot;</span>,<span class="string">&quot;123456&quot;</span>)  <span class="comment">//防止乱码  ?characterEncoding=utf-8</span></span><br></pre></td></tr></table></figure>
-
-<p>​        3,创建statement 执行sql 语句</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Statement stm =conn.createStatement();          stm.executeUpdata(sql)</span><br></pre></td></tr></table></figure>
-
-<p>​        4,返回结果并处理</p>
-<p>​        5.释放资源 (close)</p>
-<h2 id="防止SQL注入"><a href="#防止SQL注入" class="headerlink" title="防止SQL注入"></a>防止SQL注入</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sql=<span class="string">&quot;select *from user where username=? and password=?&quot;</span>;   <span class="comment">// ?为占位符</span></span><br><span class="line">PreparedStatement ps=conn.prepareStatement(sql);</span><br><span class="line">ps.setObject(<span class="number">1</span>,u.getname());    <span class="comment">//设置 值</span></span><br><span class="line">ps.setObject(<span class="number">2</span>,u.getpwd());</span><br><span class="line">Resultset rs=ps.executeQuery();    <span class="comment">// 执行SQL语句  rs 为返回结果集</span></span><br><span class="line"><span class="keyword">if</span>(rs.next())&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;登录成功&quot;</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;登录失败&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="常见API详解"><a href="#常见API详解" class="headerlink" title="常见API详解"></a>常见API详解</h2><h3 id="1-DriverManager-类"><a href="#1-DriverManager-类" class="headerlink" title="1.DriverManager 类"></a>1.DriverManager 类</h3><p>​            a.管理JDBC基础服务</p>
-<p>​            b.用于加载驱动和获取连接</p>
-<h3 id="2-Connection接口"><a href="#2-Connection接口" class="headerlink" title="2.Connection接口"></a>2.Connection接口</h3><p>​            代表数据库的连接,客户端和数据库交互时需要借助Connection完成</p>
-<h4 id="常见方法"><a href="#常见方法" class="headerlink" title="常见方法"></a>常见方法</h4><p>​                createStatement   创建向服务器发送 SQL  指令的Statement对象</p>
-<p>​                prepareStatement    创建向服务器发送预编译SQL 的preparedStatement对象</p>
-<p>​                setAutoCommit     设置事务是否自动提交</p>
-<p>​                commit()   提交事务</p>
-<p>​                rollback()  事务回滚 </p>
-<h3 id="3-Statement-及其子接口"><a href="#3-Statement-及其子接口" class="headerlink" title="3.Statement 及其子接口"></a>3.Statement 及其子接口</h3><p>​                向数据库发送SQL指令  </p>
-<p>​                    executeQuery():用于发送查询的sql语句</p>
-<p>​                    executeUpdate():用于发送增删改的sql语句</p>
-<p>​                    execute():用于发送任意的sql语句</p>
-<p>​                    addBatch():把多条sql语句添加到批处理命令中</p>
-<p>​                    execteBatch():用于执行批处理命令</p>
-<h3 id="4-ResultSet-接口"><a href="#4-ResultSet-接口" class="headerlink" title="4.ResultSet 接口"></a>4.ResultSet 接口</h3><h4 id="常见方法-1"><a href="#常见方法-1" class="headerlink" title="常见方法"></a>常见方法</h4><p>​                next():移动到下一行</p>
-<p>​                getString(int index):根据列位置获取指定类型数据    </p>
-<p>​                getString(String ColName):根据列名称获取指定类型的数据</p>
-<p>​                getObject(int index):根据列位置获取任意类型的数据</p>
-<p>​                getObject(String ColName):根据列名称获取任意类型的数据</p>
-<h2 id="外置配置文件"><a href="#外置配置文件" class="headerlink" title="外置配置文件"></a>外置配置文件</h2><p>​            1.创建jdbc.properties</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">driver&#x3D;com.mysql.jdbc.Driver</span><br><span class="line">url&#x3D;jdbc:mysql:&#x2F;&#x2F;&#x2F;mydb</span><br><span class="line">user&#x3D;root</span><br><span class="line">pwd&#x3D;root</span><br></pre></td></tr></table></figure>
-
-<p>​            2.读取配置文件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//读取属性文件</span></span><br><span class="line">			Properties prop = <span class="keyword">new</span> Properties();</span><br><span class="line">			InputStream is = BaseDao.class.getClassLoader().getResourceAsStream(<span class="string">&quot;jdbc.properties&quot;</span>);  <span class="comment">//流</span></span><br><span class="line">			prop.load(is);</span><br><span class="line">			is.close();  <span class="comment">//流对象关闭</span></span><br><span class="line">			<span class="comment">//读到key-value </span></span><br><span class="line">			driver = prop.getProperty(<span class="string">&quot;driver&quot;</span>);</span><br><span class="line">			url = prop.getProperty(<span class="string">&quot;url&quot;</span>);</span><br><span class="line">			username =prop.getProperty(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">			password = prop.getProperty(<span class="string">&quot;password&quot;</span>);</span><br><span class="line">			<span class="comment">//加载驱动</span></span><br><span class="line">			Class.forName(driver);		</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
+        
+          <a class="article-more-a" href="/2020/10/29/JDBC%20%E6%80%BB%E7%BB%93/#more">more >></a>
+        
       
 
       
@@ -557,6 +374,8 @@
     </div>
   </div>
 </footer>
+<!--页面点击小红心-->
+<script type="text/javascript" src="/love.js"></script>
     </div>
     <script>
 	var yiliaConfig = {
